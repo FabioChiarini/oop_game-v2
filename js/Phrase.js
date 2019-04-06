@@ -39,7 +39,6 @@
    }
 
 
-
    //reveals the letter(s) on the board that matches the player's selection
    showMatchedLetter(letterToCheck) {
      if (this.checkLetter(letterToCheck)) {
@@ -48,7 +47,7 @@
        this.phrase.split("").forEach((letter) => {
          if (letter === letterToCheck) {
            //select the corresponding li
-           $('ul li:eq('+count+')').removeClass().addClass('show letter ' + letter);
+           $('ul li:eq('+count+')').removeClass().addClass('show letter ' + letter).attr('value', 'guessed');
          }
          count += 1;
        });

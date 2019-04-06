@@ -55,6 +55,16 @@
 
    //check if the player had guessed all the letters
    checkForWin() {
+     //get the total number of letters, minus the whitespaces
+     let wordsLength = $('ul li').length-$('.space').length;
+     //get total number of guessed letters
+     let guessedLength = $('[value=guessed]').length;
+     if (wordsLength === guessedLength) {
+       return true;
+     }
+     else {
+       return false;
+     }
 
    }
 
