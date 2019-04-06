@@ -15,7 +15,7 @@
        "Phrase number three",
        "Let s see if you can guess this",
        "last phrase to guess"
-        ]
+     ];
       //phrase object that  currently in play
       this.activePhrase = null;
    }
@@ -31,7 +31,8 @@
 
    //randomly retrieves one of the phrases stored in the phrases array and returns it
    getRandomPhrase() {
-
+     let randomPhrase = Math.floor(Math.random() * this.phrases.length)
+     return this.phrases[randomPhrase];
    }
 
    //controls what happens in the game
