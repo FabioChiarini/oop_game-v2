@@ -29,8 +29,8 @@
    }
 
    //checks to see if the letter selected by the player matches a letter in the phrase
-   checkLetter(letter) {
-     if(this.phrase.split("").includes(letter)) {
+   checkLetter(letterToCheck) {
+     if(this.phrase.split("").includes(letterToCheck)) {
        return true;
      }
      else {
@@ -38,8 +38,20 @@
      }
    }
 
-   //reveals the letter(s) on the board that matches the player's selection
-   showMatchedLetter() {
 
+
+   //reveals the letter(s) on the board that matches the player's selection
+   showMatchedLetter(letterToCheck) {
+     if (this.checkLetter(letterToCheck)) {
+       //count to select the correct li
+       let count = 0;
+       this.phrase.split("").forEach((letter) => {
+         if (letter === letterToCheck) {
+           //select the corresponding li
+           $('ul li:eq('+count+')').removeClass().addClass('show letter ' + letter);
+         }
+         count += 1;
+       });
+     }
    }
  }
