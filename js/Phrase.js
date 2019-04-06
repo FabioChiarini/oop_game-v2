@@ -29,8 +29,13 @@
    }
 
    //checks to see if the letter selected by the player matches a letter in the phrase
-   checkLetter() {
-
+   checkLetter(letter) {
+     if(this.phrase.split("").includes(letter)) {
+       return true;
+     }
+     else {
+       return false;
+     }
    }
 
    //reveals the letter(s) on the board that matches the player's selection

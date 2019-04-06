@@ -40,7 +40,7 @@
      const phrase = new Phrase(randomPhrase);
      phrase.addPhraseToDisplay();
      //store the value of the phrase for future use
-     self.activePhrase = phrase;
+     this.activePhrase = phrase;
     }
 
    //controls what happens in the game
