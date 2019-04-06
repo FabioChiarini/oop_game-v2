@@ -12,12 +12,10 @@
    //adds letter placeholders to the display when the game starts
    addPhraseToDisplay() {
 
-
    }
 
    //checks to see if the letter selected by the player matches a letter in the phrase
    checkLetter() {
-
 
    }
 
@@ -25,7 +23,4 @@
    showMatchedLetter() {
 
    }
-
-
-
  }
