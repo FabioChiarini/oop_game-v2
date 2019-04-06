@@ -22,17 +22,27 @@
 
    //methods
 
+   //randomly retrieves one of the phrases stored in the phrases array and returns it
+   getRandomPhrase() {
+     let random = Math.floor(Math.random() * this.phrases.length)
+     return this.phrases[random];
+   }
+
+
    /*hides the start screen overlay, calls the getRandomPhrase() method,
    sets the activePhrase property with the chosen phrase
    and adds that phrase to the board*/
    startGame() {
-
-   }
-
-   //randomly retrieves one of the phrases stored in the phrases array and returns it
-   getRandomPhrase() {
-     let randomPhrase = Math.floor(Math.random() * this.phrases.length)
-     return this.phrases[randomPhrase];
+     //use self to rember the object after a click is fired
+     let self = this;
+     $('#btn__reset').click(function() {
+       //select and hide overlay
+       $('#overlay').hide();
+       const randomPhrase = self.getRandomPhrase();
+       //initialize and display hidden phrase
+       const phrase = new Phrase(randomPhrase);
+       phrase.addPhraseToDisplay();
+     });
    }
 
    //controls what happens in the game
