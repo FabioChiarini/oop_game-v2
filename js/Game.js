@@ -50,6 +50,12 @@
 
    //remove a life from scoreboard if player misses a letter
    removeLife () {
+     //count the current remaining life
+     let lifeLeft = $('[src="images/liveHeart.png"]').length;
+     if (lifeLeft > 0) {
+       $('[src="images/liveHeart.png"]:eq(0)').attr('src', "images/lostHeart.png");
+     }
+
 
    }
 
