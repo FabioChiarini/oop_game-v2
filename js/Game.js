@@ -81,8 +81,10 @@
 
 
    //controls what happens in the game
-  handleInteraction () {
-
+  handleInteraction (chosenLetter, activePhrase) {
+    if (this.activePhrase.checkLetter(chosenLetter)) {
+      console.log("working");
+    }
   }
 
 
