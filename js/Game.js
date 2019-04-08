@@ -75,8 +75,15 @@
    }
 
    //check if player won or lose and display the screen overlay accordingly
-   gameOver(){
-
+   gameOver(checkWinLose){
+     if (checkWinLose) {
+        $('#game-over-message').text('CONGRATULATIONS, YOU WON!');
+        $('#overlay').show();
+     }
+     else {
+       $('#game-over-message').text('YOU LOST, TRY AGAIN!');
+       $('#overlay').show();
+     }
    }
 
 
