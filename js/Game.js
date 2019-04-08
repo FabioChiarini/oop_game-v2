@@ -43,10 +43,6 @@
      this.activePhrase = phrase;
     }
 
-   //controls what happens in the game
-   handleInteraction () {
-
-   }
 
    //remove a life from scoreboard if player misses a letter
    removeLife () {
@@ -55,8 +51,6 @@
      if (lifeLeft > 0) {
        $('[src="images/liveHeart.png"]:eq(0)').attr('src', "images/lostHeart.png");
      }
-
-
    }
 
    //check if the player had guessed all the letters
@@ -71,7 +65,6 @@
      else {
        return false;
      }
-
    }
 
    //check if player won or lose and display the screen overlay accordingly
@@ -86,6 +79,11 @@
      }
    }
 
+
+   //controls what happens in the game
+  handleInteraction () {
+
+  }
 
 
 

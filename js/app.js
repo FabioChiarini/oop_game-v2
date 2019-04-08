@@ -12,3 +12,26 @@
    game = new Game();
    game.startGame()
  });
+
+//used to check if only alphabet letters are pressed
+let alphabet = new RegExp('[A-Za-z]');
+
+ $('#qwerty').bind('click', function(e) {
+   /*check that user is actually pressing a key button
+   and not a space in between the qwerty keyboard */
+   if(e.target.className === 'key') {
+     console.log(e.target.innerText);
+   }
+ });
+
+
+ $('body').bind('keypress', function(e) {
+   let key = e.which
+   if (alphabet.test(String.fromCharCode(key))) {
+     console.log(String.fromCharCode(key));
+   }
+   else {
+     e.preventDefault();
+     return false;
+   }
+ });
