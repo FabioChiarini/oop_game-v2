@@ -89,11 +89,22 @@
       //check if guessed letter is correct or not
       if (this.activePhrase.checkLetter(chosenLetter)) {
         $('#'+chosenLetter).removeClass("key").addClass("chosen");
+        this.activePhrase.showMatchedLetter(chosenLetter);
+
+        if (this.checkForWin()) {
+          this.gameOver(true);
+          }
+
       }
       else {
         $('#'+chosenLetter).removeClass("key").addClass("wrong");
+        this.removeLife();
+        if($('.wrong').length > 4) {
+          this.gameOver(false);
+        }
       }
     }
-
  }
+
+
 }
