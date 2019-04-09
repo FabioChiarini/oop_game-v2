@@ -20,7 +20,7 @@ for (var i = 0; i < $('.key').length; i += 1) {
    //select and hide overlay
    game = new Game();
    game.resetPage();
-   $('#overlay').hide();
+   $('#overlay').slideUp(500);
    game.startGame();
  });
 

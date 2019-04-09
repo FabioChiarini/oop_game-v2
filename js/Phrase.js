@@ -12,7 +12,7 @@
    //adds letter placeholders to the display when the game starts
    addPhraseToDisplay() {
      //select the correct div
-     let phraseContainer = $('#phrase ul')
+     let phraseContainer = $('#phrase ul');
      //split the string into single letters/spaces
      let letters = this.phrase.split("");
 
@@ -26,7 +26,17 @@
          phraseContainer.append('<li class="space"> </li>');
        }
      });
-   }
+     //show li element fading in subsuquently
+     $('#phrase ul li').hide();
+     $('#phrase ul li').each(function(i){
+       let _this = this;
+       setTimeout(function() {
+         $(_this).fadeIn(2000);
+       }, 50*i);
+     });
+ }
+
+
 
    //checks to see if the letter selected by the player matches a letter in the phrase
    checkLetter(letterToCheck) {

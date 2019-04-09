@@ -71,11 +71,13 @@
    gameOver(checkWinLose){
      if (checkWinLose) {
         $('#game-over-message').text('CONGRATULATIONS, YOU WON!');
-        $('#overlay').show();
+        $('#overlay').css("background-color", "green");
+        $('#overlay').fadeIn(2000);
      }
      else {
        $('#game-over-message').text('YOU LOST, TRY AGAIN!');
-       $('#overlay').show();
+       $('#overlay').css("background-color", "red");
+       $('#overlay').fadeIn(2000);
      }
    }
 
