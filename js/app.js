@@ -22,7 +22,6 @@ for (var i = 0; i < $('.key').length; i += 1) {
    game.resetPage();
    $('#overlay').hide();
    game.startGame();
-
  });
 
 
@@ -30,17 +29,20 @@ for (var i = 0; i < $('.key').length; i += 1) {
 let alphabet = new RegExp('[A-Za-z]');
 
 $('body').on('click keypress', function(e) {
-  if (e.type == 'click' ) {
-    if(e.target.className === 'key') {
-      game.handleInteraction(e.target.innerText);
-      /* remove focus on last key pressed, otherwise it gives problems
-      pressing the spacebar becuase it fires again the event */
-      e.target.blur();
+  //before firing a key, check if overlay is not visible
+  if (!$('#overlay').is(':visible')){
+    if (e.type == 'click' ) {
+      if(e.target.className === 'key') {
+        game.handleInteraction(e.target.innerText);
+        /* remove focus on last key pressed, otherwise it gives problems
+        pressing the spacebar becuase it fires again the event */
+        e.target.blur();
+      }
     }
-  }
-  else {
-    if (alphabet.test(String.fromCharCode(e.which))) {
-      game.handleInteraction(String.fromCharCode(e.which).toLowerCase());
+    else {
+      if (alphabet.test(String.fromCharCode(e.which))) {
+        game.handleInteraction(String.fromCharCode(e.which).toLowerCase());
+        }
+      }
     }
-  }
-});
+  });

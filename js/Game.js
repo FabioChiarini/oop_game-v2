@@ -90,7 +90,6 @@
       if (this.activePhrase.checkLetter(chosenLetter)) {
         $('#'+chosenLetter).removeClass("key").addClass("chosen");
         this.activePhrase.showMatchedLetter(chosenLetter);
-
         if (this.checkForWin()) {
           this.gameOver(true);
           }
@@ -110,7 +109,7 @@
     //remove li element from phrase
     $('#phrase ul').empty();
     //Enable onscreen keyboard buttons and update each to use the `key` CSS class
-    for (var i = 0; i < $('#qwerty button').length; i += 1) {
+    for (var i = 1; i <= $('#qwerty button').length; i += 1) {
       if ($('button:eq('+[i]+')').attr('class') === 'wrong') {
         $('button:eq('+[i]+')').removeClass("wrong").addClass("key");
         $('#qwerty:eq('+[i]+')').disabled = false;
@@ -124,10 +123,7 @@
     for(var k = 0; k < $('.tries').length; k += 1){
       $('img:eq(' + k + ')').attr('src', "images/liveHeart.png");
     }
-    console.log($('.tries').length);
-
-
-
+    $('#qwerty').show();
   }
 
 
