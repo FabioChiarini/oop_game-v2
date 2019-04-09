@@ -104,7 +104,33 @@
         }
       }
     }
- }
+  }
+
+  resetPage() {
+    //remove li element from phrase
+    $('#phrase ul').empty();
+    //Enable onscreen keyboard buttons and update each to use the `key` CSS class
+    for (var i = 0; i < $('#qwerty button').length; i += 1) {
+      if ($('button:eq('+[i]+')').attr('class') === 'wrong') {
+        $('button:eq('+[i]+')').removeClass("wrong").addClass("key");
+        $('#qwerty:eq('+[i]+')').disabled = false;
+      }
+      else {
+        $('button:eq('+[i]+')').removeClass("chosen").addClass("key");
+        $('#qwerty:eq('+[i]+')').disabled = false;
+      }
+    }
+    //Reset all of the heart images
+    for(var k = 0; k < $('.tries').length; k += 1){
+      $('img:eq(' + k + ')').attr('src', "images/liveHeart.png");
+    }
+    console.log($('.tries').length);
+
+
+
+  }
+
+
 
 
 }

@@ -18,9 +18,11 @@ for (var i = 0; i < $('.key').length; i += 1) {
 //if user clicked the button, hide the overlay and display the game
  $('#btn__reset').click(function() {
    //select and hide overlay
-   $('#overlay').hide();
    game = new Game();
-   game.startGame()
+   game.resetPage();
+   $('#overlay').hide();
+   game.startGame();
+
  });
 
 
