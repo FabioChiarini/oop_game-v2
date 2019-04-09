@@ -82,15 +82,16 @@
 
    //controls what happens in the game
   handleInteraction (chosenLetter, activePhrase) {
-    //check if guessed letter is correct or not
     //check if letter has already been clicked
-    if(!$('button:contains('+ chosenLetter +')').is(':disabled')){
-      $('button:contains('+ chosenLetter +')').attr("disabled", true);
+    if($('#'+chosenLetter).attr('class') === 'key') {
+      //disable the button after it has been clicked
+      $('#'+chosenLetter).disabled = true;
+      //check if guessed letter is correct or not
       if (this.activePhrase.checkLetter(chosenLetter)) {
-        console.log("working");
+        $('#'+chosenLetter).removeClass("key").addClass("chosen");
       }
       else {
-
+        $('#'+chosenLetter).removeClass("key").addClass("wrong");
       }
     }
 

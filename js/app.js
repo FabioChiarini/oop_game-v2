@@ -5,6 +5,16 @@
 //initialize game variable
  let game;
 
+/* assign id of buttons equals to their respective letter.
+Have to do this otherwise i got some weird behaviour when
+selecting letters on keyboard (some were not chosen but their were
+disabled anyway)*/
+for (var i = 0; i < $('.key').length; i += 1) {
+  $('.key')[i].id = $('.key')[i].innerText;
+  $('.key')[i].disabled = false;
+}
+
+
 //if user clicked the button, hide the overlay and display the game
  $('#btn__reset').click(function() {
    //select and hide overlay
@@ -14,27 +24,6 @@
  });
 
 
- /*
-  let alphabet = new RegExp('[A-Za-z]');
-
-  $('body').click(function(e) {
-    check that user is actually pressing a key button
-    and not a space in between the qwerty keyboard
-    if(e.target.className === 'key') {
-      game.handleInteraction(e.target.innerText);
-    }
-  });
-
-
-  $('body').keypress(function(e) {
-    if (alphabet.test(String.fromCharCode(e.which))) {
-      game.handleInteraction(String.fromCharCode(e.which));
-    }
-    else {
-      e.preventDefault();;
-    }
-  });
-*/
 
 let alphabet = new RegExp('[A-Za-z]');
 
@@ -49,7 +38,7 @@ $('body').on('click keypress', function(e) {
   }
   else {
     if (alphabet.test(String.fromCharCode(e.which))) {
-      game.handleInteraction(String.fromCharCode(e.which));
+      game.handleInteraction(String.fromCharCode(e.which).toLowerCase());
     }
   }
 });
