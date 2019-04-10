@@ -50,6 +50,8 @@
      let lifeLeft = $('[src="images/liveHeart.png"]').length;
      if (lifeLeft > 0) {
        $('[src="images/liveHeart.png"]:eq(0)').attr('src', "images/lostHeart.png");
+       this.missed += 1;
+       console.log(this.missed);
      }
    }
 
@@ -71,12 +73,12 @@
    gameOver(checkWinLose){
      if (checkWinLose) {
         $('#game-over-message').text('CONGRATULATIONS, YOU WON!');
-        $('#overlay').css("background-color", "green");
+        $('#overlay').removeClass().addClass('win');
         $('#overlay').fadeIn(2000);
      }
      else {
        $('#game-over-message').text('YOU LOST, TRY AGAIN!');
-       $('#overlay').css("background-color", "red");
+       $('#overlay').removeClass().addClass('lose');
        $('#overlay').fadeIn(2000);
      }
    }
@@ -100,7 +102,7 @@
       else {
         $('#'+chosenLetter).removeClass("key").addClass("wrong");
         this.removeLife();
-        if($('.wrong').length > 4) {
+        if(this.missed > 4) {
           this.gameOver(false);
         }
       }
