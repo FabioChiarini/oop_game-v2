@@ -51,7 +51,6 @@
      if (lifeLeft > 0) {
        $('[src="images/liveHeart.png"]:eq(0)').attr('src', "images/lostHeart.png");
        this.missed += 1;
-       console.log(this.missed);
      }
    }
 
